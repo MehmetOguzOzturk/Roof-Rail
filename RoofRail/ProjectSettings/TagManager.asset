@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - collect
+  - lava
+  - saw
+  - box
+  - rod
+  - right
+  - left
+  - IncraseDrag
+  - LowerDrag
+  - slide
+  - exit
+  - GameOver
+  - GameManager
+  - slideChild
+  - IncrasePlayerSpeed
+  - LowerPlayerSpeed
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - rod
+  - sliderChild
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
