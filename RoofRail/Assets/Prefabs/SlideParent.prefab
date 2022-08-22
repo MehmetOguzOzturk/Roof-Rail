@@ -210,7 +210,7 @@ GameObject:
   - component: {fileID: 6298885259185126402}
   m_Layer: 7
   m_Name: Slide (2)
-  m_TagString: Untagged
+  m_TagString: slideChild
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -300,8 +300,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.60822403, z: 0.9413755}
-  m_Center: {x: 0, y: 0.19588824, z: 0.029312229}
+  m_Size: {x: 1, y: 0.60822403, z: 0.80873895}
+  m_Center: {x: 0, y: 0.19588858, z: 0.09563087}
 --- !u!54 &6298885259337023917
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -332,6 +332,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sliderRight: {fileID: 1702363373385845232}
   sliderLeft: {fileID: 4226771804575609886}
+  particlePrefab: {fileID: 19863200, guid: fac9ad46c0307484fba6960de846139d, type: 3}
 --- !u!1 &6298885259545148032
 GameObject:
   m_ObjectHideFlags: 0

@@ -4,19 +4,19 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    Rigidbody rb;
-    Animator anim;
-    Vector3 direction;
-    bool movebytouch;
-    bool startTouch;
-    public float runspeed, velocity, swipespeed;
 
+    Animator anim;
+
+    float step;
+    Vector2 actionPosition;
+
+    public bool isRun, isFight;
+    public float speed, swipeSpeed;
 
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
-        
+
     }
 
     // Update is called once per frame
@@ -25,39 +25,37 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            movebytouch = true;
-            startTouch = true;
+
+            actionPosition = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
+            isRun = true;
+
+        }
+
+        if (isRun)
+        {
+            transform.Translate(Vector3.forward * Time.deltaTime * speed, Space.World);
             anim.SetTrigger("Run");
         }
-        if (startTouch)
-        {
-            
-            if (Input.GetMouseButtonUp(0))
-            {
-                movebytouch = false;
-            }
-            if (movebytouch)
-            {
-                direction = new Vector3(Mathf.Lerp(direction.x, Input.GetAxis("Mouse X"), runspeed * Time.deltaTime), 0f, 0f);
-                direction = Vector3.ClampMagnitude(direction, 1f);
-            }
 
-            rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, runspeed);
-        }
-
-    }
-
-    private void FixedUpdate()
-    {
-        if (movebytouch)
+        if (Input.GetMouseButton(0))
         {
 
-            rb.velocity = new Vector3(direction.x * Time.fixedDeltaTime * swipespeed * 10, rb.velocity.y, rb.velocity.z);
+
+            step = (Input.mousePosition.x - actionPosition.x);
+
+            transform.position += new Vector3(step * swipeSpeed, 0, 0) * Time.deltaTime;
+
+
+            actionPosition = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
+
+            transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+
+            Vector3 pos = transform.position;
+            pos.x = Mathf.Clamp(transform.position.x, -1.75F, 1.75F);
+            transform.position = pos;
+
         }
-        else
-        {
-            Vector3 desiredVelocity = new Vector3(0, rb.velocity.y, rb.velocity.z);
-            rb.velocity = desiredVelocity;
-        }
+
+
     }
 }

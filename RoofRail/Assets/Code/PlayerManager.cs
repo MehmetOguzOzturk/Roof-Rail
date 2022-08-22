@@ -26,12 +26,12 @@ public class PlayerManager : MonoBehaviour
     {      
 
         if (other.gameObject.CompareTag("IncrasePlayerSpeed"))
-            DOTween.To(() => plcont.runspeed, x => plcont.runspeed = x, 4, 0.5f);
+            DOTween.To(() => plcont.speed, x => plcont.speed = x, 4, 0.5f);
            
 
         if (other.gameObject.CompareTag("LowerPlayerSpeed"))
         {
-            plcont.runspeed = 3f;
+            plcont.speed = 5f;
             isSliding = false;
             anim.SetBool("Hanging", false);
             plrod.transform.DOLocalMoveY(0.45f, 0.1f);
